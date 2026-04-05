@@ -51,60 +51,74 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Card 1: Jaflong -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="জাফলং">
                             <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
                                 <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.8
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col h-full">
+                        <div class="p-6 flex flex-col flex-grow">
                             <div class="flex justify-between items-start mb-2">
                                 <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">প্রকৃতি ও নদী</div>
                                 <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ৬২ কি.মি</span>
                             </div>
                             <h3 class="font-bold text-xl text-slate-900 mb-2">জাফলং</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6 truncate">পিয়াইন নদীর তীরে খাসিয়া জৈন্তিয়া পাহাড়ের পাদদেশে অবস্থিত জাফলং...</p>
-                            <!-- লক্ষ্য করুন: এখানে href এ details.html?id=jaflong দেওয়া হয়েছে -->
-                            <a href="details.html?id=jaflong" class="mt-auto block text-center w-full py-2.5 border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">বিস্তারিত দেখুন</a>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">পিয়াইন নদীর তীরে খাসিয়া জৈন্তিয়া পাহাড়ের পাদদেশে অবস্থিত জাফলং প্রাকৃতিক সৌন্দর্যের লীলাভূমি।</p>
+                            <!-- বিস্তারিত দেখুন বাটন -->
+                            <div class="mt-auto pt-4 border-t border-slate-100">
+                                <a href="details.html?id=jaflong" class="flex items-center justify-center w-full py-2.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">
+                                    বিস্তারিত দেখুন <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Card 2: Ratargul -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1629851608670-3d231945fc0e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="রাতারগুল">
                             <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
                                 <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.7
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col h-full">
+                        <div class="p-6 flex flex-col flex-grow">
                             <div class="flex justify-between items-start mb-2">
                                 <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">জলাবন</div>
                                 <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ২৬ কি.মি</span>
                             </div>
                             <h3 class="font-bold text-xl text-slate-900 mb-2">রাতারগুল সোয়াম্প ফরেস্ট</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6 truncate">বাংলাদেশের একমাত্র মিঠাপানির জলাবন, যা বর্ষায় অপরূপ রূপ ধারণ করে...</p>
-                            <a href="details.html?id=ratargul" class="mt-auto block text-center w-full py-2.5 border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">বিস্তারিত দেখুন</a>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">বাংলাদেশের একমাত্র মিঠাপানির জলাবন, যা বর্ষায় অপরূপ রূপ ধারণ করে।</p>
+                            <!-- বিস্তারিত দেখুন বাটন -->
+                            <div class="mt-auto pt-4 border-t border-slate-100">
+                                <a href="details.html?id=ratargul" class="flex items-center justify-center w-full py-2.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">
+                                    বিস্তারিত দেখুন <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Card 3: Bisanakandi -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col">
                         <div class="relative h-56 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1585250005705-1a87c12d4aee?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="বিছনাকান্দি">
                             <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
                                 <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.9
                             </div>
                         </div>
-                        <div class="p-6 flex flex-col h-full">
+                        <div class="p-6 flex flex-col flex-grow">
                             <div class="flex justify-between items-start mb-2">
                                 <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">পাহাড় ও ঝর্ণা</div>
                                 <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ৩৯ কি.মি</span>
                             </div>
                             <h3 class="font-bold text-xl text-slate-900 mb-2">বিছনাকান্দি</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6 truncate">মেঘালয় পাহাড়ের পাদদেশে পাথর ও স্বচ্ছ জলের অপূর্ব এক মিলনমেলা...</p>
-                            <a href="details.html?id=bisanakandi" class="mt-auto block text-center w-full py-2.5 border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">বিস্তারিত দেখুন</a>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">মেঘালয় পাহাড়ের পাদদেশে পাথর ও স্বচ্ছ জলের অপূর্ব এক মিলনমেলা।</p>
+                            <!-- বিস্তারিত দেখুন বাটন -->
+                            <div class="mt-auto pt-4 border-t border-slate-100">
+                                <a href="details.html?id=bisanakandi" class="flex items-center justify-center w-full py-2.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">
+                                    বিস্তারিত দেখুন <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
