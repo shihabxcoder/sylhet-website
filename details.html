@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details - Sylhet Travel</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Back Button -->
+                <a href="index.html" class="flex items-center gap-2 text-slate-600 hover:text-emerald-600 transition-colors">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    <span class="font-medium hidden sm:inline">ফিরে যান</span>
+                </a>
+
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2">
+                    <span class="font-bold text-xl text-slate-900 tracking-tight">Sylhet<span class="text-emerald-600">Travel</span></span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+        <!-- Error Message (Hidden by default) -->
+        <div id="error-msg" class="hidden text-center py-20">
+            <i data-lucide="alert-circle" class="w-16 h-16 text-red-400 mx-auto mb-4"></i>
+            <h2 class="text-2xl font-bold text-slate-800">তথ্য পাওয়া যায়নি!</h2>
+            <p class="text-slate-500 mt-2">আপনি যে স্থানটি খুঁজছেন তার বিস্তারিত তথ্য আমাদের কাছে নেই।</p>
+            <a href="index.html" class="inline-block mt-6 px-6 py-2 bg-emerald-600 text-white rounded-lg">হোমে ফিরে যান</a>
+        </div>
+
+        <!-- Content Section -->
+        <div id="content-section" class="hidden animate-[fadeIn_0.5s_ease-out]">
+            <!-- Hero Image -->
+            <div class="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg mb-8">
+                <img id="detail-image" src="" alt="Place" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Header Info -->
+            <div class="mb-8">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span id="detail-category" class="text-sm font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full uppercase"></span>
+                    <span class="text-sm font-semibold text-slate-500 flex items-center bg-slate-100 px-3 py-1 rounded-full">
+                        <i data-lucide="map" class="w-4 h-4 mr-1"></i> <span id="detail-distance"></span>
+                    </span>
+                    <span class="text-sm font-semibold text-yellow-600 flex items-center bg-yellow-50 px-3 py-1 rounded-full border border-yellow-200">
+                        <i data-lucide="star" class="w-4 h-4 mr-1 fill-yellow-500"></i> <span id="detail-rating"></span>
+                    </span>
+                </div>
+                
+                <h1 id="detail-title" class="text-3xl md:text-5xl font-bold text-slate-900 mb-4"></h1>
+            </div>
+
+            <!-- Description -->
+            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 mb-8">
+                <h3 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2">বিস্তারিত বিবরণ</h3>
+                <p id="detail-desc" class="text-slate-600 leading-relaxed text-lg whitespace-pre-line"></p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button onclick="alert('গাইড বুকিং অপশনটি খুব শিগ্রই আসছে!')" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold text-lg transition-colors shadow-lg shadow-emerald-200 flex justify-center items-center gap-2">
+                    <i data-lucide="user-check"></i> গাইড বুক করুন
+                </button>
+                <button onclick="alert('গুগল ম্যাপ ওপেন হচ্ছে...')" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 py-4 rounded-xl font-bold text-lg transition-colors flex justify-center items-center gap-2">
+                    <i data-lucide="map-pin"></i> ম্যাপে দেখুন
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
+            &copy; ২০২৬ Sylhet Travel. সর্বস্বত্ব সংরক্ষিত।
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // ডেটাবেস
+        const placesData = {
+            'jaflong': {
+                title: 'জাফলং',
+                category: 'প্রকৃতি ও নদী',
+                distance: '৬২ কি.মি',
+                rating: '৪.৮',
+                image: 'https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&q=80&w=1200',
+                desc: 'পিয়াইন নদীর তীরে খাসিয়া জৈন্তিয়া পাহাড়ের পাদদেশে অবস্থিত জাফলং প্রাকৃতিক সৌন্দর্যের লীলাভূমি। এর প্রধান আকর্ষণ হলো নদীর স্ফটিক স্বচ্ছ জল আর নানা রঙের নুড়িপাথর।\n\nবর্ষাকালে ভারত থেকে নেমে আসা ঝর্ণাগুলো জাফলংয়ের রূপ আরও বাড়িয়ে দেয়। এখানে নৌকায় করে জিরো পয়েন্ট পর্যন্ত যাওয়া যায়। সাথে খাসিয়া পল্লী ও চা বাগান ঘুরে দেখার সুযোগ রয়েছে। সিলেট শহরের কদমতলী বা আম্বরখানা থেকে বাস বা সিএনজি যোগে জাফলং যাওয়া যায়।'
+            },
+            'ratargul': {
+                title: 'রাতারগুল সোয়াম্প ফরেস্ট',
+                category: 'জলাবন',
+                distance: '২৬ কি.মি',
+                rating: '৪.৭',
+                image: 'https://images.unsplash.com/photo-1629851608670-3d231945fc0e?auto=format&fit=crop&q=80&w=1200',
+                desc: 'রাতারগুল বাংলাদেশের একমাত্র মিঠাপানির জলাবন, যা বর্ষায় অপরূপ রূপ ধারণ করে। বর্ষাকালে পুরো বন পানিতে তলিয়ে যায়, তখন ডিঙি নৌকায় করে বনের ভেতর ঘুরে বেড়ানোর অভিজ্ঞতা অসাধারণ।\n\nবনের মাঝখানে একটি সুউচ্চ ওয়াচ টাওয়ার রয়েছে, যেখান থেকে পুরো বনের মনোরম সৌন্দর্য উপভোগ করা যায়। এখানে প্রচুর গাছপালা ও পাখির সমারোহ দেখা যায়। সিলেট শহর থেকে সিএনজি বা লেগুনা যোগে সাহেব বাজার হয়ে রাতারগুল পৌঁছানো যায়।'
+            },
+            'bisanakandi': {
+                title: 'বিছনাকান্দি',
+                category: 'পাহাড় ও ঝর্ণা',
+                distance: '৩৯ কি.মি',
+                rating: '৪.৯',
+                image: 'https://images.unsplash.com/photo-1585250005705-1a87c12d4aee?auto=format&fit=crop&q=80&w=1200',
+                desc: 'মেঘালয় পাহাড়ের পাদদেশে পাথর ও স্বচ্ছ জলের অপূর্ব এক মিলনমেলা হলো বিছনাকান্দি। পাহাড় থেকে নেমে আসা ঝর্ণার শীতল জল আর বিছিয়ে থাকা পাথর পর্যটকদের মূল আকর্ষণ।\n\nবর্ষায় এখানকার যৌবন ফিরে আসে। শহরের কোলাহল থেকে দূরে এই শীতল জলে গা ভাসিয়ে পর্যটকরা প্রশান্তি খুঁজে পান। সিলেট শহরের আম্বরখানা থেকে সিএনজি নিয়ে হাদারপার যেতে হয়, সেখান থেকে নৌকায় বিছনাকান্দি।'
+            }
+        };
+
+        // URL থেকে ID খুঁজে বের করার লজিক
+        // উদাহরণ: url যদি details.html?id=jaflong হয়, তাহলে id হবে 'jaflong'
+        const urlParams = new URLSearchParams(window.location.search);
+        const placeId = urlParams.get('id');
+
+        const contentSection = document.getElementById('content-section');
+        const errorMsg = document.getElementById('error-msg');
+
+        // যদি ID ডেটাবেসে থাকে, তাহলে তথ্য দেখাও
+        if (placeId && placesData[placeId]) {
+            const data = placesData[placeId];
+            
+            document.getElementById('detail-title').textContent = data.title;
+            document.getElementById('detail-category').textContent = data.category;
+            document.getElementById('detail-distance').textContent = data.distance;
+            document.getElementById('detail-rating').textContent = data.rating;
+            document.getElementById('detail-desc').textContent = data.desc;
+            document.getElementById('detail-image').src = data.image;
+
+            contentSection.classList.remove('hidden');
+        } else {
+            // যদি ভুল লিংকে আসে, তাহলে এরর দেখাও
+            errorMsg.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
+
