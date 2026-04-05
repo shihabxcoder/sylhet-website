@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sylhet Travel - Explore</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="bg-emerald-600 p-2 rounded-lg">
+                        <i data-lucide="compass" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <span class="font-bold text-xl md:text-2xl text-slate-900 tracking-tight">Sylhet<span class="text-emerald-600">Travel</span></span>
+                </div>
+                
+                <!-- Weather / Info -->
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center text-sm text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">
+                        <i data-lucide="sun" class="w-4 h-4 mr-1 text-orange-500"></i> ২৮°C, রৌদ্রোজ্জ্বল
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <div class="space-y-8">
+            <!-- Hero Banner -->
+            <div class="relative rounded-2xl overflow-hidden h-64 md:h-96 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&q=80&w=1200" alt="সিলেটের দৃশ্য" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6 md:p-12">
+                    <h1 class="text-3xl md:text-6xl font-bold text-white mb-3">চায়ের দেশ সিলেট</h1>
+                    <p class="text-slate-200 md:text-xl max-w-2xl">পাহাড়, নদী, হাওর আর সবুজ চা বাগানের অপূর্ব মিলনমেলা। খুঁজে নিন আপনার পরবর্তী ভ্রমণের গন্তব্য।</p>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="relative w-full max-w-2xl mx-auto mt-[-2rem] z-10 hidden md:block">
+                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-6 h-6"></i>
+                <input type="text" placeholder="কোথায় যেতে চান? (যেমন: জাফলং, রাতারগুল)" class="w-full pl-12 pr-4 py-4 rounded-xl border-0 ring-1 ring-slate-200 focus:ring-2 focus:ring-emerald-500 shadow-xl text-lg">
+            </div>
+
+            <!-- Mobile Search -->
+            <div class="relative w-full md:hidden pt-4">
+                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5 mt-2"></i>
+                <input type="text" placeholder="কোথায় যেতে চান?" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm">
+            </div>
+
+            <!-- Destinations Section -->
+            <div class="pt-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-8 flex items-center gap-2 border-b pb-4">
+                    <i data-lucide="map-pin" class="text-emerald-500 w-8 h-8"></i> জনপ্রিয় স্থানসমূহ
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1: Jaflong -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="জাফলং">
+                            <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.8
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">প্রকৃতি ও নদী</div>
+                                <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ৬২ কি.মি</span>
+                            </div>
+                            <h3 class="font-bold text-xl text-slate-900 mb-2">জাফলং</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">পিয়াইন নদীর তীরে খাসিয়া জৈন্তিয়া পাহাড়ের পাদদেশে অবস্থিত জাফলং প্রাকৃতিক সৌন্দর্যের লীলাভূমি।</p>
+                            <button class="w-full py-2.5 border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">বিস্তারিত দেখুন</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Ratargul -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1629851608670-3d231945fc0e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="রাতারগুল">
+                            <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.7
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">জলাবন</div>
+                                <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ২৬ কি.মি</span>
+                            </div>
+                            <h3 class="font-bold text-xl text-slate-900 mb-2">রাতারগুল সোয়াম্প ফরেস্ট</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">বাংলাদেশের একমাত্র মিঠাপানির জলাবন, যা বর্ষায় অপরূপ রূপ ধারণ করে এবং নৌকায় ঘুরে বেড়ানোর জন্য বিখ্যাত।</p>
+                            <button class="w-full py-2.5 border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">বিস্তারিত দেখুন</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Bisanakandi -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1585250005705-1a87c12d4aee?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="বিছনাকান্দি">
+                            <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.9
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">পাহাড় ও ঝর্ণা</div>
+                                <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ৩৯ কি.মি</span>
+                            </div>
+                            <h3 class="font-bold text-xl text-slate-900 mb-2">বিছনাকান্দি</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">মেঘালয় পাহাড়ের পাদদেশে পাথর ও স্বচ্ছ জলের অপূর্ব এক মিলনমেলা। বর্ষায় এর সৌন্দর্য বহুগুণ বেড়ে যায়।</p>
+                            <button class="w-full py-2.5 border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">বিস্তারিত দেখুন</button>
+                        </div>
+                    </div>
+                     <!-- Card 4: Tea Garden -->
+                     <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1597818440078-d069b009e429?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="চা বাগান">
+                            <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">চা বাগান</div>
+                                <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ৪ কি.মি</span>
+                            </div>
+                            <h3 class="font-bold text-xl text-slate-900 mb-2">মালনীছড়া চা বাগান</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">উপমহাদেশের সবচেয়ে প্রাচীন চা বাগান, সবুজের এক বিশাল সমারোহ। শহরের খুব কাছেই অবস্থিত।</p>
+                            <button class="w-full py-2.5 border border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">বিস্তারিত দেখুন</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
+            &copy; ২০২৬ Sylhet Travel. সর্বস্বত্ব সংরক্ষিত।
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // আইকনগুলো লোড করার জন্য
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
+
