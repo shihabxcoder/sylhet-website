@@ -3,113 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sylhet Travel - Explore</title>
-    <!-- Tailwind CSS -->
+    <title>সিলেট ভ্রমণ গাইড | Sylhet Travel</title>
+    
+    <!-- Tailwind CSS লোড করার জন্য CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- আইকনের জন্য FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- কাস্টম এনিমেশন -->
+    <style>
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* হাইড করার ক্লাস */
+        .hidden-view { display: none !important; }
+    </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-800">
+<body class="bg-slate-50 font-sans text-slate-800 pt-16 flex flex-col min-h-screen">
 
-    <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <a href="index.html" class="flex items-center gap-2">
-                    <div class="bg-emerald-600 p-2 rounded-lg">
-                        <i data-lucide="compass" class="h-6 w-6 text-white"></i>
-                    </div>
-                    <span class="font-bold text-xl md:text-2xl text-slate-900 tracking-tight">Sylhet<span class="text-emerald-600">Travel</span></span>
-                </a>
-                <div class="flex items-center gap-4">
-                    <div class="flex items-center text-sm text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">
-                        <i data-lucide="sun" class="w-4 h-4 mr-1 text-orange-500"></i> ২৮°C, রৌদ্রোজ্জ্বল
-                    </div>
-                </div>
+    <!-- ন্যাভিগেশন বার -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer group" onclick="showHome()">
+                <i class="fa-solid fa-leaf text-2xl text-emerald-600 group-hover:rotate-12 transition-transform duration-300"></i>
+                <span class="text-xl font-extrabold tracking-tight text-slate-800">
+                    সিলেট<span class="text-emerald-600">ভ্রমণ</span>
+                </span>
+            </div>
+            <div class="hidden md:flex gap-8">
+                <button onclick="showHome()" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors">গন্তব্যসমূহ</button>
+                <button onclick="showHome()" class="text-sm font-semibold text-slate-600 hover:text-emerald-600 transition-colors">ভ্রমণ গাইড</button>
+            </div>
+            <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-emerald-600/30 flex items-center gap-2">
+                <i class="fa-solid fa-compass"></i>
+                <span>প্ল্যান করুন</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- হোম পেজ (প্রধান ভিউ) -->
+    <main id="home-view" class="fade-in flex-grow">
+        <!-- হিরো সেকশন -->
+        <div class="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1596423735880-5fcb98544d67?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="সিলেটের চা বাগান" 
+                 class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-slate-900/50"></div>
+            
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+                <span class="inline-block py-1 px-4 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 text-sm font-semibold mb-6">
+                    দুটি পাতা একটি কুঁড়ির দেশে স্বাগতম
+                </span>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg tracking-tight">
+                    আবিষ্কার করুন <span class="text-emerald-400">সিলেট</span>
+                </h1>
+                <p class="text-lg md:text-2xl text-slate-100 drop-shadow-md font-medium">
+                    মনোরম চা বাগান, স্বচ্ছ জলের নদী আর রহস্যময় সোয়াম্প ফরেস্টের খোঁজে।
+                </p>
             </div>
         </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        <div class="space-y-8">
-            <!-- Hero Banner -->
-            <div class="relative rounded-2xl overflow-hidden h-64 md:h-96 shadow-lg">
-                <img src="https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&q=80&w=1200" alt="সিলেটের দৃশ্য" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6 md:p-12">
-                    <h1 class="text-3xl md:text-6xl font-bold text-white mb-3">চায়ের দেশ সিলেট</h1>
-                    <p class="text-slate-200 md:text-xl max-w-2xl">পাহাড়, নদী, হাওর আর সবুজ চা বাগানের অপূর্ব মিলনমেলা। খুঁজে নিন আপনার পরবর্তী ভ্রমণের গন্তব্য।</p>
-                </div>
+        <!-- জনপ্রিয় স্থানসমূহের গ্রিড -->
+        <div class="max-w-7xl mx-auto px-4 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4">জনপ্রিয় গন্তব্যসমূহ</h2>
+                <div class="w-24 h-1.5 bg-emerald-500 mx-auto rounded-full"></div>
+                <p class="text-slate-500 mt-4 text-lg">বিস্তারিত জানতে যেকোনো একটি স্থানে ক্লিক করুন।</p>
             </div>
+            
+            <div id="places-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- জাভাস্ক্রিপ্ট দিয়ে এখানে কার্ডগুলো যুক্ত করা হবে -->
+            </div>
+        </div>
+    </main>
 
-            <!-- Destinations Section -->
-            <div class="pt-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-8 flex items-center gap-2 border-b pb-4">
-                    <i data-lucide="map-pin" class="text-emerald-500 w-8 h-8"></i> জনপ্রিয় স্থানসমূহ
-                </h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Card 1: Jaflong -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col">
-                        <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1594998893017-36147cbcae05?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="জাফলং">
-                            <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
-                                <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.8
-                            </div>
+    <!-- ডিটেইলস পেজ (বিস্তারিত ভিউ) -->
+    <main id="detail-view" class="hidden-view pb-20 bg-white flex-grow">
+        <!-- ডিটেইলস কন্টেন্ট জাভাস্ক্রিপ্ট দিয়ে রেন্ডার হবে -->
+    </main>
+
+    <!-- ফুটার -->
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-auto">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center gap-4">
+            <div class="flex items-center gap-2 text-white text-xl font-bold mb-2">
+                <i class="fa-solid fa-leaf text-emerald-500"></i>
+                <span>সিলেট<span class="text-emerald-500">ভ্রমণ</span></span>
+            </div>
+            <p class="max-w-md text-sm leading-relaxed mb-4">
+                সিলেট, বাংলাদেশের প্রাকৃতিক সৌন্দর্য, সমৃদ্ধ সংস্কৃতি এবং শান্ত পরিবেশ উপভোগ করার আপনার চূড়ান্ত গাইডলাইন।
+            </p>
+            <div class="w-16 h-px bg-slate-700"></div>
+            <p class="text-xs mt-2">&copy; ২০২৬ সিলেট ট্যুরিজম। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <!-- লজিক ও ডেটা -->
+    <script>
+        // ডেটাবেস (স্থানের তথ্যসমূহ)
+        const placesData = [
+            {
+                id: 'jaflong',
+                name: 'জাফলং',
+                tagline: 'প্রকৃতির কন্যা',
+                icon: 'fa-mountain',
+                shortDesc: 'পাহাড়ের পাদদেশে অবস্থিত একটি সুন্দর স্থান যা পাথর সংগ্রহ, স্বচ্ছ পানি এবং খাসিয়া উপজাতির জন্য বিখ্যাত।',
+                fullDesc: 'জাফলং সিলেটের অন্যতম আকর্ষণীয় পর্যটন কেন্দ্র। ভারতের মেঘালয় পাহাড়ের পাদদেশে অবস্থিত এই স্থানটি পিয়াইন নদী এবং চারপাশের সবুজ পাহাড়ের শ্বাসরুদ্ধকর দৃশ্যের জন্য পরিচিত। এখানকার স্বচ্ছ জল এবং পাথর সংগ্রহের দৃশ্য পর্যটকদের মুগ্ধ করে।',
+                imageUrl: 'https://images.unsplash.com/photo-1620504100652-32b00f5b9d5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                howToGo: 'সিলেট শহরের কদমতলী বা সুবহানীঘাট বাস স্ট্যান্ড থেকে সরাসরি লোকাল বাস, লেগুনা অথবা সিএনজি/মাইক্রোবাস রিজার্ভ করে যাওয়া যায়। সিলেট-তামাবিল হাইওয়ে ধরে যেতে প্রায় ২ ঘণ্টা সময় লাগে।',
+                costs: [
+                    { mode: 'লোকাল বাস', amount: '১০০ - ১৫০ টাকা / জন' },
+                    { mode: 'রিজার্ভ সিএনজি', amount: '১,২০০ - ১,৫০০ টাকা' },
+                    { mode: 'রিজার্ভ মাইক্রোবাস', amount: '২,৫০০ - ৩,৫০০ টাকা' }
+                ]
+            },
+            {
+                id: 'bichanakandi',
+                name: 'বিছানাকান্দি',
+                tagline: 'যেখানে মেঘ আর পাথরের মিলন',
+                icon: 'fa-water',
+                shortDesc: 'মেঘালয়ের উঁচু পাহাড় থেকে নেমে আসা পাথুরে নদীর স্বচ্ছ স্রোতধারার এক অপূর্ব ল্যান্ডস্কেপ।',
+                fullDesc: 'বিছানাকান্দি যেন এক টুকরো স্বর্গ, যেখানে ভারতের মেঘালয়ের অন্ধকার পাহাড়গুলো বাংলাদেশের সমতলের সাথে মিশেছে। এখানকার মূল আকর্ষণ হলো পাথুরে নদী, যার উপর দিয়ে মেঘালয় থেকে নেমে আসা বরফগলা ঠাণ্ডা জল বয়ে যায়। বর্ষাকালে এটি সবচেয়ে সুন্দর রূপ ধারণ করে।',
+                imageUrl: 'https://images.unsplash.com/photo-1596423735880-5fcb98544d67?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                howToGo: 'সিলেট শহরের আম্বরখানা পয়েন্ট থেকে সিএনজি বা মাইক্রোবাস নিয়ে হাদারপাড় বাজার যেতে হবে। হাদারপাড় ঘাট থেকে স্থানীয় ইঞ্জিন নৌকা ভাড়া করে বিছানাকান্দি জিরো পয়েন্টে যেতে হয়। নৌকার যাত্রাটি খুবই মনোরম।',
+                costs: [
+                    { mode: 'সিএনজি (হাদারপাড় পর্যন্ত)', amount: '১,৫০০ টাকা (রিজার্ভ)' },
+                    { mode: 'লোকাল লেগুনা', amount: '৮০ - ১২০ টাকা / জন' },
+                    { mode: 'নৌকা ভাড়া (জিরো পয়েন্ট)', amount: '১,০০০ - ১,৫০০ টাকা' }
+                ]
+            },
+            {
+                id: 'ratargul',
+                name: 'রাতারগুল সোয়াম্প ফরেস্ট',
+                tagline: 'বাংলাদেশের আমাজন',
+                icon: 'fa-tree',
+                shortDesc: 'বাংলাদেশের একমাত্র মিঠাপানির জলাবন, যেখানে নৌকায় করে অর্ধেক ডুবে থাকা গাছের মাঝে ঘুরে বেড়ানো যায়।',
+                fullDesc: 'রাতারগুল হলো একটি চমৎকার মিঠাপানির জলাবন যা বছরের প্রায় অর্ধেক সময় পানির নিচে তলিয়ে থাকে। একে প্রায়শই "বাংলাদেশের আমাজন" বলা হয়। ছোট ডিঙি নৌকায় করে শান্ত জলের উপর দিয়ে করচ গাছের বনের ভেতর ঘুরে বেড়ানো এক ঐন্দ্রজালিক অভিজ্ঞতা।',
+                imageUrl: 'https://images.unsplash.com/photo-1600356525167-27b2b6278e34?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                howToGo: 'সিলেটের আম্বরখানা থেকে সিএনজি নিয়ে মোটরঘাট বা চৌরিখাই ঘাটে যেতে হবে। ঘাট থেকে বন বিভাগের অনুমোদিত ছোট কাঠের নৌকা ভাড়া করে বনের ভেতরে প্রবেশ করতে হয়।',
+                costs: [
+                    { mode: 'রিজার্ভ সিএনজি (ঘাট পর্যন্ত)', amount: '৫০০ - ৮০০ টাকা' },
+                    { mode: 'ছোট নৌকা ভাড়া (২ ঘণ্টা)', amount: '৭৫০ - ১,০০০ টাকা' },
+                    { mode: 'ওয়াচটাওয়ার এন্ট্রি', amount: 'ফ্রি / নামমাত্র ফি' }
+                ]
+            },
+            {
+                id: 'lalakhal',
+                name: 'লালাখাল',
+                tagline: 'নীলাভ জলের নদী',
+                icon: 'fa-droplet',
+                shortDesc: 'ভারতের চেরাপুঞ্জি পাহাড় থেকে নেমে আসা সারি নদীর অদ্ভুত সুন্দর পান্না-সবুজ জলের জন্য পরিচিত।',
+                fullDesc: 'লালাখাল মূলত সারি নদীর একটি অংশ, যার পানি অদ্ভুত নীল বা পান্না-সবুজ রঙের। নদীর তলদেশের খনিজ পদার্থ এবং বালির কারণে এই অনন্য রঙের সৃষ্টি। চা বাগান এবং পাহাড়ের মাঝ দিয়ে নৌকায় করে লালাখাল জিরো পয়েন্টের দিকে যাওয়ার অভিজ্ঞতা অসাধারণ।',
+                imageUrl: 'https://images.unsplash.com/photo-1585641773030-80b67e7c9f80?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                howToGo: 'সিলেট থেকে জাফলংগামী বাস বা লেগুনায় করে সারিঘাট নামতে হবে। সারিঘাট ব্রিজ থেকে ইঞ্জিন চালিত নৌকা ভাড়া করে উজানের দিকে লালাখাল যাওয়া যায়। চাইলে সরাসরি সিএনজি নিয়েও লালাখাল চা বাগান এলাকায় যাওয়া যায়।',
+                costs: [
+                    { mode: 'বাস (সারিঘাট পর্যন্ত)', amount: '৮০ - ১০০ টাকা / জন' },
+                    { mode: 'রিজার্ভ নৌকা (লালাখাল)', amount: '১,৫০০ - ২,০০০ টাকা' },
+                    { mode: 'সরাসরি সিএনজি (লালাখাল)', amount: '১,২০০ - ১,৫০০ টাকা' }
+                ]
+            }
+        ];
+
+        // হোমপেজে কার্ডগুলো রেন্ডার করার ফাংশন
+        function renderHomeCards() {
+            const grid = document.getElementById('places-grid');
+            grid.innerHTML = '';
+
+            placesData.forEach(place => {
+                const card = document.createElement('div');
+                card.className = "group bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-300 overflow-hidden cursor-pointer flex flex-col hover:-translate-y-1";
+                card.onclick = () => showDetail(place.id);
+
+                card.innerHTML = `
+                    <div class="h-60 overflow-hidden relative">
+                        <img src="${place.imageUrl}" alt="${place.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-2xl text-emerald-600 shadow-sm">
+                            <i class="fa-solid ${place.icon} text-xl"></i>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <div class="flex justify-between items-start mb-2">
-                                <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">প্রকৃতি ও নদী</div>
-                                <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ৬২ কি.মি</span>
-                            </div>
-                            <h3 class="font-bold text-xl text-slate-900 mb-2">জাফলং</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">পিয়াইন নদীর তীরে খাসিয়া জৈন্তিয়া পাহাড়ের পাদদেশে অবস্থিত জাফলং প্রাকৃতিক সৌন্দর্যের লীলাভূমি।</p>
-                            <!-- বিস্তারিত দেখুন বাটন -->
-                            <div class="mt-auto pt-4 border-t border-slate-100">
-                                <a href="details.html?id=jaflong" class="flex items-center justify-center w-full py-2.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">
-                                    বিস্তারিত দেখুন <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                                </a>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-1">${place.name}</h3>
+                        <p class="text-emerald-600 text-sm font-semibold mb-4">${place.tagline}</p>
+                        <p class="text-slate-600 text-sm mb-8 flex-grow leading-relaxed">${place.shortDesc}</p>
+                        <button class="w-full py-3 bg-emerald-50 group-hover:bg-emerald-600 text-emerald-700 group-hover:text-white font-bold rounded-xl transition-colors duration-300 flex items-center justify-center gap-2">
+                            বিস্তারিত দেখুন <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // বিস্তারিত পেজ দেখানোর ফাংশন
+        function showDetail(placeId) {
+            const place = placesData.find(p => p.id === placeId);
+            if (!place) return;
+
+            // কস্ট লিস্ট তৈরি করা
+            const costsHtml = place.costs.map(cost => `
+                <li class="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-amber-200/50 pb-3 last:border-0 last:pb-0 gap-1">
+                    <span class="font-semibold text-slate-700">${cost.mode}</span>
+                    <span class="font-bold text-amber-600 bg-amber-100/50 px-3 py-1 rounded-lg w-fit">
+                        ${cost.amount}
+                    </span>
+                </li>
+            `).join('');
+
+            const detailHtml = `
+                <div class="fade-in">
+                    <!-- হিরো সেকশন -->
+                    <div class="relative h-[60vh] min-h-[400px]">
+                        <img src="${place.imageUrl}" alt="${place.name}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
+                        
+                        <!-- ব্যাক বাটন -->
+                        <div class="absolute top-6 left-4 md:left-8 z-10">
+                            <button onclick="showHome()" class="bg-white/20 hover:bg-white/40 backdrop-blur-md border border-white/30 text-white p-3 rounded-2xl flex items-center gap-3 transition-all hover:-translate-x-1 shadow-lg">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                <span class="font-semibold pr-2 hidden sm:inline">হোমে ফিরে যান</span>
+                            </button>
+                        </div>
+
+                        <!-- টাইটেল -->
+                        <div class="absolute bottom-0 left-0 w-full p-6 md:p-12 z-10">
+                            <div class="max-w-7xl mx-auto">
+                                <span class="inline-block py-1 px-3 rounded-lg bg-emerald-500 text-white text-sm font-bold mb-4 shadow-md">
+                                    সিলেটের দর্শনীয় স্থান
+                                </span>
+                                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-2 tracking-tight">${place.name}</h1>
+                                <p class="text-emerald-300 text-xl md:text-2xl font-medium">${place.tagline}</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Card 2: Ratargul -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col">
-                        <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1629851608670-3d231945fc0e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="রাতারগুল">
-                            <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
-                                <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.7
+                    <!-- মূল কন্টেন্ট -->
+                    <div class="max-w-7xl mx-auto px-4 py-16">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 xl:gap-16">
+                            
+                            <!-- বর্ণনা -->
+                            <div class="lg:col-span-2">
+                                <div class="flex items-center gap-3 mb-6">
+                                    <div class="bg-emerald-100 p-3 rounded-2xl text-emerald-600">
+                                        <i class="fa-solid fa-location-dot text-xl"></i>
+                                    </div>
+                                    <h2 class="text-3xl font-bold text-slate-800">${place.name} সম্পর্কে</h2>
+                                </div>
+                                <p class="text-slate-600 text-lg leading-relaxed mb-10">
+                                    ${place.fullDesc}
+                                </p>
+                                <div class="rounded-3xl overflow-hidden h-72 md:h-96 bg-slate-100 shadow-inner relative group">
+                                    <img src="${place.imageUrl}" class="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-700" alt="${place.name} দৃশ্য">
+                                </div>
                             </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <div class="flex justify-between items-start mb-2">
-                                <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">জলাবন</div>
-                                <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ২৬ কি.মি</span>
-                            </div>
-                            <h3 class="font-bold text-xl text-slate-900 mb-2">রাতারগুল সোয়াম্প ফরেস্ট</h3>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">বাংলাদেশের একমাত্র মিঠাপানির জলাবন, যা বর্ষায় অপরূপ রূপ ধারণ করে।</p>
-                            <!-- বিস্তারিত দেখুন বাটন -->
-                            <div class="mt-auto pt-4 border-t border-slate-100">
-                                <a href="details.html?id=ratargul" class="flex items-center justify-center w-full py-2.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white rounded-lg font-medium transition-colors">
-                                    বিস্তারিত দেখুন <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                                </a>
+
+                            <!-- ডানপাশের সাইডবার (যাতায়াত ও খরচ) -->
+                            <div class="space-y-8">
+                                
+                                <!-- কীভাবে যাবেন -->
+                                <div class="bg-emerald-50 rounded-[2rem] p-8 border border-emerald-100/50 shadow-sm relative overflow-hidden">
+                                    <div class="absolute -right-6 -top-6 text-emerald-100 opacity-50 text-9xl">
+                                        <i class="fa-solid fa-bus"></i>
+                                    </div>
+                                    <div class="relative z-10">
+                                        <div class="w-14 h-14 bg-white text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-emerald-100 text-2xl">
+                                            <i class="fa-solid fa-bus"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-800 mb-4">কীভাবে যাবেন</h3>
+                                        <p class="text-slate-700 leading-relaxed text-base">
+                                            ${place.howToGo}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- খরচের ধারণা -->
+                                <div class="bg-amber-50 rounded-[2rem] p-8 border border-amber-100/50 shadow-sm relative overflow-hidden">
+                                    <div class="absolute -right-6 -top-6 text-amber-100 opacity-50 text-9xl">
+                                        <i class="fa-solid fa-wallet"></i>
+                                    </div>
+                                    <div class="relative z-10">
+                                        <div class="w-14 h-14 bg-white text-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-amber-100 text-2xl">
+                                            <i class="fa-solid fa-wallet"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-800 mb-6">আনুমানিক খরচ</h3>
+                                        <ul class="space-y-4">
+                                            ${costsHtml}
+                                        </ul>
+                                        <p class="text-xs text-amber-700/70 mt-6 flex items-center gap-1.5">
+                                            <span class="block w-1.5 h-1.5 rounded-full bg-amber-400"></span> 
+                                            সিজন ও দরকষাকষির ওপর ভিত্তি করে খরচ পরিবর্তন হতে পারে।
+                                        </p>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
+                </div>
+            `;
 
-                    <!-- Card 3: Bisanakandi -->
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group flex flex-col">
-                        <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1585250005705-1a87c12d4aee?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="বিছনাকান্দি">
-                            <div class="absolute top-4 right-4 bg-white/90 px-3 py-1.5 rounded-lg text-sm font-bold text-slate-800 flex items-center gap-1 shadow-sm">
-                                <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> 4.9
-                            </div>
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <div class="flex justify-between items-start mb-2">
-                                <div class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">পাহাড় ও ঝর্ণা</div>
-                                <span class="text-xs text-slate-500 flex items-center"><i data-lucide="map" class="w-3 h-3 mr-1"></i> ৩৯ কি.মি</span>
+            document.getElementById('detail-view').innerHTML = detailHtml;
+            
+            // ভিউ চেঞ্জ করা
+            document.getElementById('home-view').classList.add('hidden-view');
+            document.getElementById('detail-view').classList.remove('hidden-view');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // হোমে ফিরে আসার ফাংশন
+        function showHome() {
+            document.getElementById('detail-view').classList.add('hidden-view');
+            document.getElementById('home-view').classList.remove('hidden-view');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // পেজ লোড হলে কার্ডগুলো রেন্ডার হবে
+        window.onload = renderHomeCards;
+    </script>
+</body>
+</html>
                             </div>
                             <h3 class="font-bold text-xl text-slate-900 mb-2">বিছনাকান্দি</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">মেঘালয় পাহাড়ের পাদদেশে পাথর ও স্বচ্ছ জলের অপূর্ব এক মিলনমেলা।</p>
